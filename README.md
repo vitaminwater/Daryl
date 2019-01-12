@@ -131,7 +131,7 @@ https://the-url-with-solution.com/foo
 
 ```
 
-### Mark last note as done
+### (d) Mark last note as done
 
 And at last, we can mark the current note as done:
 
