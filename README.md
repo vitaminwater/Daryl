@@ -89,9 +89,7 @@ And once you stop calling the random command, the last note you saw is the one c
 
 ### (l) Retrieve current note
 
-Now that we have a note we're going to work on, it's saved as being the `last`
-
-You can see this note as many times as you need by typing:
+Now that we have a note we're going to work on, we can see this note as many times as you need by typing:
 
 ```sh
 
