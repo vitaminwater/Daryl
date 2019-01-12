@@ -31,6 +31,8 @@ I hate TODO list apps for two simple reasons:
 
 ## Installation
 
+If you are already using daryl on another computer, you might want to follow the [Sync to github](#sync-to-github) section first.
+
 Just download and place the `daryl` file in a directory like `/usr/local/bin`, and `chmod +x` it:
 
 ```sh
@@ -183,3 +185,11 @@ Syncing to git@your-git-server.com:daryl.git: ok
 ```
 
 This command does a pull and a push, so it's bi-directionnal.
+
+When adding a new computer, just do a:
+
+```sh
+
+git clone git@your-git-server.com:daryl.git ~/.daryl
+
+```
