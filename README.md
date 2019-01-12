@@ -1,9 +1,11 @@
+# Meet Daryl
+
 ![Daryl](assets/daryl.png?raw=true "Daryl")
 
 Table of Contents
 =================
 
-   * [Daryl](#daryl)
+   * [Intro](#intro)
    * [TODO list apps suck](#todo-list-apps-suck)
    * [How it works](#how-it-works)
       * [Installation](#installation)
@@ -15,7 +17,7 @@ Table of Contents
          * [Mark last note as done](#mark-last-note-as-done)
          * [Sync to github](#sync-to-github)
 
-# Daryl
+# Intro
 
 Daryl allows to take note from the terminal by typing `daryl This is noted I can forget it and go on`.
 
