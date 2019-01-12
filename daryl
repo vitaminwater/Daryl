@@ -33,7 +33,7 @@ if [ "$#" -lt 1 ]; then
   exit
 fi
 
-DIR="$HOME/.notes"
+DIR="$HOME/.daryl"
 DONE_DIR="$DIR/.done"
 
 if [ "$1" == "r" ]; then # get random note, store it as the last
@@ -44,7 +44,7 @@ if [ "$1" == "r" ]; then # get random note, store it as the last
   exit
 elif [ "$1" == "l" ]; then  # prints the note stored as last
   if ! [ -e "$DIR/last" ]; then
-    echo "Call 'note r' first."
+    echo "Call 'daryl r' first."
     exit
   fi
   LAST="$(cat $DIR/last)"
@@ -54,7 +54,7 @@ elif [ "$1" == "l" ]; then  # prints the note stored as last
   exit
 elif [ "$1" == "--" ]; then # add log to a note
   if ! [ -e "$DIR/last" ]; then
-    echo "Call 'note r' first."
+    echo "Call 'daryl r' first."
     exit
   fi
   LAST="$(cat $DIR/last)"
@@ -67,7 +67,7 @@ elif [ "$1" == "--" ]; then # add log to a note
   exit
 elif [ "$1" == "d" ]; then # delete the note stored as last
   if ! [ -e "$DIR/last" ]; then
-    echo "Call 'note r' first."
+    echo "Call 'daryl r' first."
     exit
   fi
   LAST="$(cat $DIR/last)"

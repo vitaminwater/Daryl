@@ -1,7 +1,9 @@
+![Daryl](assets/daryl.png?raw=true "Daryl")
+
 Table of Contents
 =================
 
-   * [Note](#note)
+   * [Daryl](#daryl)
    * [TODO list apps suck](#todo-list-apps-suck)
    * [How it works](#how-it-works)
       * [Installation](#installation)
@@ -13,9 +15,9 @@ Table of Contents
          * [Mark last note as done](#mark-last-note-as-done)
          * [Sync to github](#sync-to-github)
 
-# Note
+# Daryl
 
-Note allows to take note from the terminal byte typing `note This is noted I can forget it and go on`.
+Daryl allows to take note from the terminal byte typing `daryl This is noted I can forget it and go on`.
 
 # TODO list apps suck
 
@@ -27,13 +29,13 @@ I hate TODO list apps for two simple reasons:
 
 ## Installation
 
-Just download and place the `note` file in a directory like `/usr/local/bin`, and `chmod +x` it:
+Just download and place the `daryl` file in a directory like `/usr/local/bin`, and `chmod +x` it:
 
 ```sh
 
-curl github.com -o ~/Downloads/note
-chmod +x ~/Downloads/note
-sudo mv ~/Downloads/note /usr/local/bin/
+curl https://raw.githubusercontent.com/vitaminwater/Daryl/master/daryl -o ~/Downloads/daryl
+chmod +x ~/Downloads/daryl
+sudo mv ~/Downloads/daryl /usr/local/bin/
 
 ```
 
@@ -43,12 +45,12 @@ There's just 6 commands right now:
 
 ### Create note
 
-Just type `note` followed by you note, no need to add ", all params are concatenated.
+Just type `daryl` followed by you note, no need to add ", all params are concatenated.
 
 ```sh
 
-$ note This is noted I can forget it and go on
-Saving as /home/user/.notes/1547283650.txt: ok
+$ daryl This is noted I can forget it and go on
+Saving as /home/user/.daryl/1547283650.txt: ok
 
 ```
 
@@ -62,7 +64,7 @@ What I want is arrive at my desk in the morning, check if I have a task going si
 
 ```sh
 
-$ note r
+$ daryl r
 Sat Jan 12 10:00:50 CET 2019 - 1547283650.txt:
 This is noted I can forget it and go on
 
@@ -78,7 +80,7 @@ You can see this note as many times as you need by typing:
 
 ```sh
 
-$ note l
+$ daryl l
 Sat Jan 12 10:00:50 CET 2019 - 1547283650.txt:
 This is noted I can forget it and go on
 
@@ -90,16 +92,16 @@ As you go on, you might want to add logs to a note, so next time you get on it, 
 
 ```sh
 
-note -- https://the-url-with-solution.com/foo
+daryl -- https://the-url-with-solution.com/foo
 Added log to 1547283650.txt: ok
 
 ```
 
-and now, when we call `note l` to get the last back:
+and now, when we call `daryl l` to get the last back:
 
 ```sh
 
-$ note l
+$ daryl l
 Sat Jan 12 10:00:50 CET 2019 - 1547283650.txt:
 This is noted I can forget it and go on
 
@@ -114,9 +116,9 @@ And at last, we can mark the current note as done:
 
 ```sh
 
-$ note d
+$ daryl d
 This will delete note 1547283650.txt, sure ? (y/N): y
-Marked note /home/stant/.notes/1547283650.txt as done: ok
+Marked note /home/stant/.daryl/1547283650.txt as done: ok
 
 ```
 
@@ -128,13 +130,13 @@ Oh, and I also want history of want I do, who knows what might happend, it's so 
 
 Good news that's not new need, so let's use `git` as a backend.
 
-First thing is to initialize the `~/.notes` directory as a git repository.
+First thing is to initialize the `~/.daryl` directory as a git repository.
 
 ```sh
 
-cd ~/.notes
+cd ~/.daryl
 git init
-git remote add origin git@your-git-server.com:notes.git
+git remote add origin git@your-git-server.com:daryl.git
 git add .
 git commit -m 'first commit'
 git push --set-upstream origin master
@@ -145,7 +147,7 @@ Now whenever you want to sync:
 
 ```sh
 
-$ note s
+$ daryl s
 [master 6664e6e] Sync command
  1 file changed, 2 insertions(+)
  create mode 100644 1547286167.txt
@@ -155,9 +157,9 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 282 bytes | 0 bytes/s, done.
 Total 3 (delta 1), reused 0 (delta 0)
-To git.ccsas.biz:notes.git
+To git.ccsas.biz:daryl.git
    4c06a1a..6664e6e  master -> master
-Syncing to git@your-git-server.com:notes.git: ok
+Syncing to git@your-git-server.com:daryl.git: ok
 
 ```
 
