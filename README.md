@@ -113,7 +113,7 @@ Added log to 1547283650.txt: ok
 
 The kind of things you'd want to use the logs for:
 - bookmark urls
-- write notes of gotchas you might get into again
+- write notes or gotchas you might get into again
 - useful commands
 - something like `TAG: useful_tag`, so you can find them with a `grep -l 'TAG: useful_tag' ~/.daryl/*.txt` (I might add commands for stuff like this once I get more used to it).
 - Or even just a "I was here" to know when was the last time you worked on it.
