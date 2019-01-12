@@ -39,6 +39,16 @@ sudo mv ~/Downloads/daryl /usr/local/bin/
 
 ```
 
+Actually typing `daryl` everytime is already enough for me to forget what I was about to note, to let's just add an alias so we can only type `d`:
+
+```sh
+
+echo "alias d='daryl'" >> ~/.bashrc
+
+```
+
+For macosx users, replace `.bashrc` with `.profile`.
+
 ## Usage
 
 There's just 6 commands right now:
