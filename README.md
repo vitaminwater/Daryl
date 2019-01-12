@@ -1,3 +1,18 @@
+Table of Contents
+=================
+
+   * [Note](#note)
+   * [TODO list apps suck](#todo-list-apps-suck)
+   * [How it works](#how-it-works)
+      * [Installation](#installation)
+      * [Usage](#usage)
+         * [Create note](#create-note)
+         * [Get a random note](#get-a-random-note)
+         * [Retrieve current note](#retrieve-current-note)
+         * [Add log to a note](#add-log-to-a-note)
+         * [Mark last note as done](#mark-last-note-as-done)
+         * [Sync to github](#sync-to-github)
+
 # Note
 
 Note allows to take note from the terminal byte typing `note This is noted I can forget it and go on`.
