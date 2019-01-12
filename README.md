@@ -55,7 +55,7 @@ For macosx users, replace `.bashrc` with `.profile`.
 
 ## Orders
 
-There's just 6 commands right now:
+Currently Daryl only responds to 6 possible orders:
 
 ### Create note
 
