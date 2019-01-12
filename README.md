@@ -59,7 +59,7 @@ Currently Daryl only responds to 6 possible orders:
 
 ### Create note
 
-Just type `daryl` followed by you note, no need to add ", all params are concatenated.
+Just type `daryl` followed by your note, no need to add ", all params are concatenated.
 
 ```sh
 
