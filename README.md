@@ -19,7 +19,7 @@ Table of Contents
 
 # Intro
 
-Daryl allows to take note from the terminal by typing `daryl This is noted I can forget it and go on`.
+Daryl helps you focus on multiple things, one at a time.
 
 # TODO list apps suck
 
