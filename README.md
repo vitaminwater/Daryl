@@ -24,7 +24,7 @@ sudo mv ~/Downloads/note /usr/local/bin/
 
 ## Usage
 
-There's just 5 commands right now:
+There's just 6 commands right now:
 
 ### Create note
 
@@ -104,3 +104,46 @@ This will delete note 1547283650.txt, sure ? (y/N): y
 Marked note /home/stant/.notes/1547283650.txt as done: ok
 
 ```
+
+### Sync to github
+
+Ok that's cool but I have multiple computers, so I want synchronization between the machines.
+
+Oh, and I also want history of want I do, who knows what might happend, it's so easy to `rm *` by negligence.
+
+Good news that's not new need, so let's use `git` as a backend.
+
+First thing is to initialize the `~/.notes` directory as a git repository.
+
+```sh
+
+cd ~/.notes
+git init
+git remote add origin git@your-git-server.com:notes.git
+git add .
+git commit -m 'first commit'
+git push --set-upstream origin master
+
+```
+
+Now whenever you want to sync:
+
+```sh
+
+$ note s
+[master 6664e6e] Sync command
+ 1 file changed, 2 insertions(+)
+ create mode 100644 1547286167.txt
+Already up-to-date.
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 282 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To git.ccsas.biz:notes.git
+   4c06a1a..6664e6e  master -> master
+Syncing to git@your-git-server.com:notes.git: ok
+
+```
+
+This command does a pull and a push, so it's bi-directionnal.
