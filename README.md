@@ -1,6 +1,6 @@
 # Meet Daryl
 
-![Daryl](assets/daryl.png?raw=true "Daryl")
+![Daryl](assets/daryl.png?raw=true&r=21421 "Daryl")
 
 Table of Contents
 =================
