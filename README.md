@@ -17,7 +17,7 @@ Table of Contents
 
 # Daryl
 
-Daryl allows to take note from the terminal byte typing `daryl This is noted I can forget it and go on`.
+Daryl allows to take note from the terminal by typing `daryl This is noted I can forget it and go on`.
 
 # TODO list apps suck
 
