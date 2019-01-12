@@ -124,7 +124,7 @@ And at last, we can mark the current note as done:
 ```sh
 
 $ daryl d
-This will delete note 1547283650.txt, sure ? (y/N): y
+The note $LAST will be ${RED}marked as done${NC}, sure ? (y/N): 
 Marked note /home/stant/.daryl/1547283650.txt as done: ok
 
 ```
