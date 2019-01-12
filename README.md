@@ -88,7 +88,7 @@ This is noted I can forget it and go on
 
 ### Add log to a note
 
-As you go on, you might want to add logs to a note, so next time you get on it, you can remember where you were. Or even just bookmark an url or something..
+As you go on, you might want to add logs to a note, so next time you get on it, you can remember where you were.
 
 ```sh
 
@@ -97,7 +97,14 @@ Added log to 1547283650.txt: ok
 
 ```
 
-and now, when we call `daryl l` to get the last back:
+The kind of things you'd want to use the logs for:
+- bookmark urls
+- write notes of gotchas you might get into again
+- useful commands
+- something like `TAG: useful_tag`, so you can find them with a `grep -l 'TAP: useful_tag' ~/.daryl/*.txt` (I might add commands for stuff like this once I get more used to it).
+- Or even just a "I was here" to know when was the last time you worked on it.
+
+Back to our note, now when we call `daryl l` to get the last back, we can see our newly created log:
 
 ```sh
 
