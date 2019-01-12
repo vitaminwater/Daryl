@@ -14,7 +14,7 @@ Table of Contents
          * [(r) Get a random note](#get-a-random-note)
          * [(l) Retrieve current note](#retrieve-current-note)
          * [(--) Add log to a note](#add-log-to-a-note)
-         * [(d) Mark last note as done](#mark-last-note-as-done)
+         * [(d) Mark current note as done](#mark-current-note-as-done)
          * [(s) Sync to github](#sync-to-github)
 
 # Intro
@@ -130,7 +130,7 @@ https://the-url-with-solution.com/foo
 
 ```
 
-### (d) Mark last note as done
+### (d) Mark current note as done
 
 And at last, we can mark the current note as done:
 
