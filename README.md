@@ -138,7 +138,7 @@ And at last, we can mark the current note as done:
 
 $ d d
 The note $LAST will be ${RED}marked as done${NC}, sure ? (y/N): 
-Marked note /home/stant/.daryl/1547283650.txt as done: ok
+Marked note /home/user/.daryl/1547283650.txt as done: ok
 
 ```
 
