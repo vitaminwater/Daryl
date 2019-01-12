@@ -11,11 +11,11 @@ Table of Contents
       * [Installation](#installation)
       * [Orders](#orders)
          * [Create note](#create-note)
-         * [(r) Get a random note](#get-a-random-note)
-         * [(l) Retrieve current note](#retrieve-current-note)
-         * [(--) Add log to a note](#add-log-to-a-note)
-         * [(d) Mark current note as done](#mark-current-note-as-done)
-         * [(s) Sync to github](#sync-to-github)
+         * [(r) Get a random note](#r-get-a-random-note)
+         * [(c) Retrieve current note](#c-retrieve-current-note)
+         * [(--) Add log to a note](#---add-log-to-a-note)
+         * [(d) Mark current note as done](#d-mark-current-note-as-done)
+         * [(s) Sync to github](#s-sync-to-github)
 
 # Intro
 
@@ -63,7 +63,7 @@ Just type `daryl` followed by you note, no need to add ", all params are concate
 
 ```sh
 
-$ daryl This is noted I can forget it and go on
+$ d This is noted I can forget it and go on
 Saving as /home/user/.daryl/1547283650.txt: ok
 
 ```
@@ -78,7 +78,7 @@ What I want is arrive at my desk in the morning, check if I have a task going on
 
 ```sh
 
-$ daryl r
+$ d r
 Sat Jan 12 10:00:50 CET 2019 - 1547283650.txt:
 This is noted I can forget it and go on
 
@@ -87,13 +87,13 @@ This is noted I can forget it and go on
 You can call this as many times as you want.
 And once you stop calling the random command, the last note you saw is the one chosen to work on.
 
-### (l) Retrieve current note
+### (c) Retrieve current note
 
 Now that we have a note we're going to work on, we can see this note as many times as we need by typing:
 
 ```sh
 
-$ daryl l
+$ d c
 Sat Jan 12 10:00:50 CET 2019 - 1547283650.txt:
 This is noted I can forget it and go on
 
@@ -117,11 +117,11 @@ The kind of things you'd want to use the logs for:
 - something like `TAG: useful_tag`, so you can find them with a `grep -l 'TAG: useful_tag' ~/.daryl/*.txt` (I might add commands for stuff like this once I get more used to it).
 - Or even just a "I was here" to know when was the last time you worked on it.
 
-Back to our note, now when we call `daryl l` to get the current note, we can see our newly created log:
+Back to our note, now when we call `d c` to get the current note, we can see our newly created log:
 
 ```sh
 
-$ daryl l
+$ d c
 Sat Jan 12 10:00:50 CET 2019 - 1547283650.txt:
 This is noted I can forget it and go on
 
@@ -136,7 +136,7 @@ And at last, we can mark the current note as done:
 
 ```sh
 
-$ daryl d
+$ d d
 The note $LAST will be ${RED}marked as done${NC}, sure ? (y/N): 
 Marked note /home/stant/.daryl/1547283650.txt as done: ok
 
@@ -167,7 +167,7 @@ Now whenever you want to sync:
 
 ```sh
 
-$ daryl s
+$ d s
 [master 6664e6e] Sync command
  1 file changed, 2 insertions(+)
  create mode 100644 1547286167.txt
