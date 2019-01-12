@@ -1,0 +1,87 @@
+#!/bin/bash
+
+# Copyright (C) 2019  Constantin Clauzel <constantin.clauzel@gmail.com>
+# Author: Constantin Clauzel <constantin.clauzel@gmail.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+NC="\033[0m"
+
+if [ "$#" -lt 1 ]; then
+  echo "Illegal number of parameters"
+  exit
+fi
+
+DIR="$HOME/.notes"
+DONE_DIR="$DIR/.done"
+
+if [ "$1" == "r" ]; then # get random note, store it as the last
+  R=$(ls $DIR | grep -v last | sort -R | tail -1)
+  echo -e "$(date -d @${R/.txt/}) - ${GREEN}$R${NC}:"
+  cat $DIR/$R
+  printf "$R" > $DIR/last
+  exit
+elif [ "$1" == "l" ]; then  # prints the note stored as last
+  if ! [ -e "$DIR/last" ]; then
+    echo "Call 'note r' first."
+    exit
+  fi
+  LAST="$(cat $DIR/last)"
+  FILE_PATH="$DIR/$LAST"
+  echo -e "$(date -d @${LAST/.txt/}) - ${GREEN}$LAST${NC}:"
+  cat $FILE_PATH
+  exit
+elif [ "$1" == "--" ]; then # add log to a note
+  if ! [ -e "$DIR/last" ]; then
+    echo "Call 'note r' first."
+    exit
+  fi
+  LAST="$(cat $DIR/last)"
+  FILE_PATH="$DIR/$LAST"
+  NOTE="${@:2}"
+  echo "========= Logged on $(date) =========" >> $FILE_PATH
+  echo "$NOTE" >> $FILE_PATH
+  echo "" >> $FILE_PATH
+  echo -e "Added log to $LAST: ${GREEN}ok${NC}"
+  exit
+elif [ "$1" == "d" ]; then # delete the note stored as last
+  if ! [ -e "$DIR/last" ]; then
+    echo "Call 'note r' first."
+    exit
+  fi
+  LAST="$(cat $DIR/last)"
+  FILE_PATH="$DIR/$LAST"
+  printf "This will ${RED}delete${NC} note $LAST, sure ? (y/N): "
+  read confirm
+  if [ "$confirm" != "y" ]; then
+    echo -e "${RED}Abort${NC}"
+    exit
+  fi
+  mkdir -p $DONE_DIR
+  mv $FILE_PATH $DONE_DIR/
+  echo -e "Marked note $FILE_PATH as done: ${GREEN}ok${NC}"
+  rm $DIR/last
+  exit
+fi # else create new note
+
+NOTE="$*"
+TS=`date +"%s"`
+FILE_PATH="$DIR/$TS.txt"
+
+mkdir -p $DIR
+echo $NOTE > $FILE_PATH
+echo "" >> $FILE_PATH
+echo -e "Saving as $FILE_PATH: ${GREEN}ok${NC}"
