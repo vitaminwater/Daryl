@@ -9,7 +9,7 @@ Table of Contents
    * [TODO list apps suck](#todo-list-apps-suck)
    * [How it works](#how-it-works)
       * [Installation](#installation)
-      * [Usage](#usage)
+      * [Orders](#orders)
          * [Create note](#create-note)
          * [(r) Get a random note](#get-a-random-note)
          * [(l) Retrieve current note](#retrieve-current-note)
