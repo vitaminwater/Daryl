@@ -43,7 +43,7 @@ sudo mv ~/Downloads/daryl /usr/local/bin/
 
 ```
 
-Actually typing `daryl` everytime is already enough for me to forget what I was about to note, to let's just add an alias so we can only type `d`:
+Actually typing `daryl` everytime is already enough for me to forget what I was about to note, so let's just add an alias so we can only type `d`:
 
 ```sh
 
