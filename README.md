@@ -84,7 +84,8 @@ This is noted I can forget it and go on
 
 ```
 
-You can call this as many times as you want. Everytime you do it, the shown note is marked as being the `last`. Which means that once you stop calling the random command, the last note you saw is the one you choose to work on.
+You can call this as many times as you want.
+And once you stop calling the random command, the last note you saw is the one chosen to work on.
 
 ### (l) Retrieve current note
 
