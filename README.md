@@ -74,7 +74,7 @@ The name is just the UNIX timestamp.
 
 So as said above I hate seeing all TODOS, it's depressing and at one point our brain is made to start not seeing them anymore.
 
-What I want is arrive at my desk in the morning, check if I have a task going since last day, and if not, just ask for a random one.
+What I want is arrive at my desk in the morning, check if I have a task going on since last day, and if not, just ask for a random one.
 
 ```sh
 
