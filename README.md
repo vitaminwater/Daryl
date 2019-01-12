@@ -133,7 +133,7 @@ Marked note /home/stant/.daryl/1547283650.txt as done: ok
 
 Ok that's cool but I have multiple computers, so I want synchronization between the machines.
 
-Oh, and I also want history of want I do, who knows what might happend, it's so easy to `rm *` by negligence.
+Oh, and I also want history of want I do, who knows what could happen, it's so easy to `rm *` by negligence.
 
 Good news that's not new need, so let's use `git` as a backend.
 
