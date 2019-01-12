@@ -101,7 +101,7 @@ This is noted I can forget it and go on
 
 ### (--) Add log to a note
 
-As you go on, you might want to add logs to a note, so next time you get on it, you can remember where you were.
+As you go on, you might want to add logs to a note, so next time you get on it, you can remember where you were at last time you left.
 
 ```sh
 
