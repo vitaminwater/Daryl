@@ -70,7 +70,7 @@ Saving as /home/user/.daryl/1547283650.txt: ok
 
 The name is just the UNIX timestamp.
 
-### Get a random note
+### (r) Get a random note
 
 So as said above I hate seeing all TODOS, it's depressing and at one point our brain is made to start not seeing them anymore.
 
@@ -86,7 +86,7 @@ This is noted I can forget it and go on
 
 You can call this as many times as you want. Everytime you do it, the shown note is marked as being the `last`. Which means once you stop calling it the last one you saw is the one you choose to do.
 
-### Retrieve current note
+### (l) Retrieve current note
 
 Now that we have a note we're going to work on, it's saved as being the `last`
 
@@ -100,7 +100,7 @@ This is noted I can forget it and go on
 
 ```
 
-### Add log to a note
+### (--) Add log to a note
 
 As you go on, you might want to add logs to a note, so next time you get on it, you can remember where you were.
 
@@ -143,7 +143,7 @@ Marked note /home/stant/.daryl/1547283650.txt as done: ok
 
 ```
 
-### Sync to github
+### (s) Sync to github
 
 Ok that's cool but I have multiple computers, so I want synchronization between the machines.
 
