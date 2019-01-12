@@ -193,3 +193,5 @@ When adding a new computer, just do a:
 git clone git@your-git-server.com:daryl.git ~/.daryl
 
 ```
+
+Before typing the first daryl command.
