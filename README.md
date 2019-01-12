@@ -105,7 +105,7 @@ As you go on, you might want to add logs to a note, so next time you get on it, 
 
 ```sh
 
-daryl -- https://the-url-with-solution.com/foo
+$ d -- https://the-url-with-solution.com/foo
 Added log to 1547283650.txt: ok
 
 ```
