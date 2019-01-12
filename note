@@ -20,6 +20,14 @@ RED="\033[0;31m"
 GREEN="\033[0;32m"
 NC="\033[0m"
 
+pushd () {
+  command pushd "$@" > /dev/null
+}
+
+popd () {
+  command popd "$@" > /dev/null
+}
+
 if [ "$#" -lt 1 ]; then
   echo "Illegal number of parameters"
   exit
@@ -74,6 +82,19 @@ elif [ "$1" == "d" ]; then # delete the note stored as last
   mv $FILE_PATH $DONE_DIR/
   echo -e "Marked note $FILE_PATH as done: ${GREEN}ok${NC}"
   rm $DIR/last
+  exit
+elif [ "$1" == "s" ]; then # Github sync
+  if ! [ -e "$DIR/.git" ]; then
+    echo -e "Git repository is not configured in $DIR"
+    exit
+  fi
+  pushd $DIR
+  git add .
+  git commit -am 'Sync command'
+  git pull
+  git push
+  echo -e "Syncing to $(git remote get-url origin): ${GREEN}ok${NC}"
+  popd
   exit
 fi # else create new note
 
