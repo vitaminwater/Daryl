@@ -29,7 +29,8 @@ popd () {
 }
 
 if [ "$#" -lt 1 ]; then
-  echo "Illegal number of parameters"
+  echo "Cannot be called without parameters."
+  echo "Please see https://github.com/vitaminwater/Daryl for some documentation."
   exit
 fi
 
