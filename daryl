@@ -37,13 +37,15 @@ fi
 DIR="$HOME/.daryl"
 DONE_DIR="$DIR/.done"
 
-if [ "$1" == "r" ]; then # get random note, store it as the last
+# get random note, store it as the last
+if [ "$1" == "r" ]; then
   R=$(ls $DIR | grep -v last | sort -R | tail -1)
   echo -e "$(date -d @${R/.txt/}) - ${GREEN}$R${NC}:"
   cat $DIR/$R
   printf "$R" > $DIR/last
-  exit
-elif [ "$1" == "l" ]; then  # prints the note stored as last
+
+# prints the note stored as last
+elif [ "$1" == "l" ]; then
   if ! [ -e "$DIR/last" ]; then
     echo "Call 'daryl r' first."
     exit
@@ -52,8 +54,9 @@ elif [ "$1" == "l" ]; then  # prints the note stored as last
   FILE_PATH="$DIR/$LAST"
   echo -e "$(date -d @${LAST/.txt/}) - ${GREEN}$LAST${NC}:"
   cat $FILE_PATH
-  exit
-elif [ "$1" == "--" ]; then # add log to a note
+
+# add log to a note
+elif [ "$1" == "--" ]; then
   if ! [ -e "$DIR/last" ]; then
     echo "Call 'daryl r' first."
     exit
@@ -65,8 +68,9 @@ elif [ "$1" == "--" ]; then # add log to a note
   echo "$NOTE" >> $FILE_PATH
   echo "" >> $FILE_PATH
   echo -e "Added log to $LAST: ${GREEN}ok${NC}"
-  exit
-elif [ "$1" == "d" ]; then # end the note stored as last
+
+# end the note stored as last
+elif [ "$1" == "d" ]; then
   if ! [ -e "$DIR/last" ]; then
     echo "Call 'daryl r' first."
     exit
@@ -83,8 +87,9 @@ elif [ "$1" == "d" ]; then # end the note stored as last
   mv $FILE_PATH $DONE_DIR/
   echo -e "Marked note $FILE_PATH as done: ${GREEN}ok${NC}"
   rm $DIR/last
-  exit
-elif [ "$1" == "s" ]; then # Github sync
+
+# Github sync
+elif [ "$1" == "s" ]; then
   if ! [ -e "$DIR/.git" ]; then
     echo -e "Git repository is not configured in $DIR"
     exit
@@ -96,14 +101,16 @@ elif [ "$1" == "s" ]; then # Github sync
   git push
   echo -e "Syncing to $(git remote get-url origin): ${GREEN}ok${NC}"
   popd
-  exit
-fi # else create new note
 
-NOTE="$*"
-TS=`date +"%s"`
-FILE_PATH="$DIR/$TS.txt"
+# else create new note
+else
+  NOTE="$*"
+  TS=`date +"%s"`
+  FILE_PATH="$DIR/$TS.txt"
 
-mkdir -p $DIR
-echo $NOTE > $FILE_PATH
-echo "" >> $FILE_PATH
-echo -e "Saving as $FILE_PATH: ${GREEN}ok${NC}"
+  mkdir -p $DIR
+  echo $NOTE > $FILE_PATH
+  echo "" >> $FILE_PATH
+  echo -e "Saving as $FILE_PATH: ${GREEN}ok${NC}"
+
+fi
