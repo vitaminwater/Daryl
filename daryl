@@ -44,8 +44,8 @@ if [ "$1" == "r" ]; then
   cat $DIR/$R
   printf "$R" > $DIR/last
 
-# prints the note stored as last
-elif [ "$1" == "l" ]; then
+# prints the current note
+elif [ "$1" == "c" ]; then
   if ! [ -e "$DIR/last" ]; then
     echo "Call 'daryl r' first."
     exit
