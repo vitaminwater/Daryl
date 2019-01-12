@@ -11,11 +11,11 @@ Table of Contents
       * [Installation](#installation)
       * [Usage](#usage)
          * [Create note](#create-note)
-         * [r  : Get a random note](#get-a-random-note)
-         * [l  : Retrieve current note](#retrieve-current-note)
-         * [-- : Add log to a note](#add-log-to-a-note)
-         * [d  : Mark last note as done](#mark-last-note-as-done)
-         * [s  : Sync to github](#sync-to-github)
+         * [(r) Get a random note](#get-a-random-note)
+         * [(l) Retrieve current note](#retrieve-current-note)
+         * [(--) Add log to a note](#add-log-to-a-note)
+         * [(d) Mark last note as done](#mark-last-note-as-done)
+         * [(s) Sync to github](#sync-to-github)
 
 # Intro
 
