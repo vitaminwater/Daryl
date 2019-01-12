@@ -53,7 +53,7 @@ echo "alias d='daryl'" >> ~/.bashrc
 
 For macosx users, replace `.bashrc` with `.profile`.
 
-## Usage
+## Orders
 
 There's just 6 commands right now:
 
