@@ -66,14 +66,14 @@ elif [ "$1" == "--" ]; then # add log to a note
   echo "" >> $FILE_PATH
   echo -e "Added log to $LAST: ${GREEN}ok${NC}"
   exit
-elif [ "$1" == "d" ]; then # delete the note stored as last
+elif [ "$1" == "d" ]; then # end the note stored as last
   if ! [ -e "$DIR/last" ]; then
     echo "Call 'daryl r' first."
     exit
   fi
   LAST="$(cat $DIR/last)"
   FILE_PATH="$DIR/$LAST"
-  printf "This will ${RED}delete${NC} note $LAST, sure ? (y/N): "
+  printf "The note $LAST will be ${RED}marked as done${NC}, sure ? (y/N): "
   read confirm
   if [ "$confirm" != "y" ]; then
     echo -e "${RED}Abort${NC}"
