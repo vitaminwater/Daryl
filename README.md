@@ -19,7 +19,7 @@ Note allows to take note from the terminal byte typing `note This is noted I can
 
 # TODO list apps suck
 
-I hate TODOlist apps for two simple reasons:
+I hate TODO list apps for two simple reasons:
 - I have to open it, which is usually enough for me to forget what I was about to note.
 - Once openned it'll dump a river of TODOs at my face, which is enough for me to forget what I was about to note.
 
