@@ -72,7 +72,7 @@ Saving as /home/user/.daryl/1547283650.txt: ok
 
 ```
 
-The name '1547283650.txt' is just the UNIX timestamp.
+The name `1547283650.txt` is just the UNIX timestamp.
 
 ### (r) Get a random note
 
