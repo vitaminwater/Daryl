@@ -15,6 +15,8 @@ Table of Contents
          * [(c) Retrieve current note](#c-retrieve-current-note)
          * [(--) Add log to a note](#---add-log-to-a-note)
          * [(d) Mark current note as done](#d-mark-current-note-as-done)
+         * [(a) Dump all &amp; Search](#a-dump-all--search)
+         * [(e) Edit current note](#e-edit-current-note)
          * [(s) Sync to github](#s-sync-to-github)
 
 # Intro
@@ -141,6 +143,18 @@ The note $LAST will be ${RED}marked as done${NC}, sure ? (y/N):
 Marked note /home/user/.daryl/1547283650.txt as done: ok
 
 ```
+
+### (a) Dump all & Search
+
+Just do a `d a` and you'll have all your notes dumped. Useful to find a particular one.
+
+If a second parameter is present, it is treated as a regexp, and only the matching notes are dumped.
+
+### (e) Edit current note
+
+Sometime you'd like to edit your current note, just do a `d e`.
+
+Keep in mind that it'll try to open it with the editor in the `$EDITOR` environment variable. So set it if you haven't.
 
 ### (s) Sync to github
 

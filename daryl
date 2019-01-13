@@ -28,7 +28,20 @@ popd () {
   command popd "$@" > /dev/null
 }
 
-if [ "$#" -lt 1 ]; then
+set_current () {
+  if [ -n "$FORCE_CURRENT" ]; then
+    CURRENT="${FORCE_CURRENT/.txt/}.txt"
+  else
+    if ! [ -e "$DIR/last" ]; then
+      echo "Call 'daryl r' first. Or set FORCE_CURRENT variable (by doing 'FORCE_CURRENT=214124421421.txt d c' for ex, do a 'd a' to find note names)."
+      exit
+    fi
+    CURRENT="$(cat $DIR/last)"
+  fi
+  FILE_PATH="$DIR/$CURRENT"
+}
+
+if [ $# -lt 1 ]; then
   echo "Cannot be called without parameters."
   echo "Please see https://github.com/vitaminwater/Daryl for some documentation."
   exit
@@ -40,44 +53,63 @@ DONE_DIR="$DIR/.done"
 # get random note, store it as the last
 if [ "$1" == "r" ]; then
   R=$(ls $DIR | grep -v last | sort -R | tail -1)
-  echo -e "$(date -d @${R/.txt/}) - ${GREEN}$R${NC}:"
+  echo -e "$(date -d @${R/.txt/}) - ${GREEN}$R${NC}"
   cat $DIR/$R
   printf "$R" > $DIR/last
 
-# prints the current note
+# prints the current note or sets the second parameter as the new current note, second parameter should be the name of the timestamp of the note
 elif [ "$1" == "c" ]; then
-  if ! [ -e "$DIR/last" ]; then
-    echo "Call 'daryl r' first."
-    exit
+  # Sets the current note when second parameter is a note timestamp
+  if [ $# == 2 ]; then
+    NEW_CURRENT="${2/.txt/}.txt"
+    if [ -e "$DIR/$NEW_CURRENT" ]; then
+      printf "$NEW_CURRENT" > $DIR/last
+    else
+      echo -e "${RED}Can't find the note $NEW_CURRENT.${NC}"
+      exit
+    fi
   fi
-  LAST="$(cat $DIR/last)"
-  FILE_PATH="$DIR/$LAST"
-  echo -e "$(date -d @${LAST/.txt/}) - ${GREEN}$LAST${NC}:"
+  set_current
+  echo -e "$(date -d @${CURRENT/.txt/}) - ${GREEN}$CURRENT${NC}"
   cat $FILE_PATH
 
+# Dump all notes
+elif [ "$1" == "a" ]; then
+  j=1
+  for i in $(ls $DIR/*.txt); do
+    if [ $# == 2 ]; then
+      if ! grep -q -i -E "$2" $i; then
+        continue
+      fi
+    fi
+    NOTE=$(basename $i)
+    echo -e "#$j - $(date -d @${NOTE/.txt/}) - ${GREEN}$NOTE${NC}"
+    cat $i
+    echo "---------------------------------------"
+    let j=$j+1
+  done
+
+# open current in $EDITOR
+elif [ "$1" == "e" ]; then
+  if [ -z "$EDITOR" ]; then
+    EDITOR=vi # default to vi ?
+  fi
+  set_current
+  $EDITOR "$FILE_PATH"
+  
 # add log to a note
 elif [ "$1" == "--" ]; then
-  if ! [ -e "$DIR/last" ]; then
-    echo "Call 'daryl r' first."
-    exit
-  fi
-  LAST="$(cat $DIR/last)"
-  FILE_PATH="$DIR/$LAST"
+  set_current
   NOTE="${@:2}"
   echo "========= Logged on $(date) =========" >> $FILE_PATH
   echo "$NOTE" >> $FILE_PATH
   echo "" >> $FILE_PATH
-  echo -e "Added log to $LAST: ${GREEN}ok${NC}"
+  echo -e "Added log to $CURRENT: ${GREEN}ok${NC}"
 
 # end the note stored as last
 elif [ "$1" == "d" ]; then
-  if ! [ -e "$DIR/last" ]; then
-    echo "Call 'daryl r' first."
-    exit
-  fi
-  LAST="$(cat $DIR/last)"
-  FILE_PATH="$DIR/$LAST"
-  printf "The note $LAST will be ${RED}marked as done${NC}, sure ? (y/N): "
+  set_current
+  printf "The note $CURRENT will be ${RED}marked as done${NC}, sure ? (y/N): "
   read confirm
   if [ "$confirm" != "y" ]; then
     echo -e "${RED}Abort${NC}"
