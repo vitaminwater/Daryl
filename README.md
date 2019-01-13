@@ -13,10 +13,12 @@ Table of Contents
          * [Create note](#create-note)
          * [(r) Get a random note](#r-get-a-random-note)
          * [(c) Retrieve current note](#c-retrieve-current-note)
+            * [Force current note](#force-current-note)
          * [(--) Add log to a note](#---add-log-to-a-note)
          * [(d) Mark current note as done](#d-mark-current-note-as-done)
          * [(a) Dump all &amp; Search](#a-dump-all--search)
          * [(e) Edit current note](#e-edit-current-note)
+         * [Work on another note](#work-on-another-note)
          * [(s) Sync to github](#s-sync-to-github)
 
 # Intro
@@ -101,6 +103,10 @@ This is noted I can forget it and go on
 
 ```
 
+#### Force current note
+
+The `c` command can also be used to change the current note to a specific one. Just add the name after the `c`, like in `d c 1547244396.txt`.
+
 ### (--) Add log to a note
 
 As you go on, you might want to add logs to a note, so next time you get on it, you can remember where you were at last time you left.
@@ -155,6 +161,12 @@ If a second parameter is present, it is treated as a regexp, and only the matchi
 Sometime you'd like to edit your current note, just do a `d e`.
 
 Keep in mind that it'll try to open it with the editor in the `$EDITOR` environment variable. So set it if you haven't.
+
+### Work on another note
+
+If you want to use another note as the current, without actually changing the current note (like, for a phone call or something), just add `FORCE_CURRENT=[note name]` just before the `d`.
+
+If you have recurrent needs on a particular note, just create an alias like `alias z='FORCE_CURRENT=[ THIS_NOTE_NAME ] d'`, now all we have to do is replace the `d` from our commands by a `z` and you're working on the other note.
 
 ### (s) Sync to github
 
