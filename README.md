@@ -166,7 +166,23 @@ Keep in mind that it'll try to open it with the editor in the `$EDITOR` environm
 
 If you want to use another note as the current, without actually changing the current note (like, for a phone call or something), just add `FORCE_CURRENT=[note name]` just before the `d`.
 
+```sh
+
+FORCE_CURRENT=[note name] d
+
+```
+
 If you have recurrent needs on a particular note, just create an alias like `alias z='FORCE_CURRENT=[ THIS_NOTE_NAME ] d'`, now all we have to do is replace the `d` from our commands by a `z` and you're working on the other note.
+
+To install the alias:
+
+```sh
+
+echo "alias z='FORCE_CURRENT=[ THIS_NOTE_NAME ] d'" >> ~/.bashrc
+
+```
+
+For macosx users, replace `.bashrc` with `.profile`.
 
 ### (s) Sync to github
 
