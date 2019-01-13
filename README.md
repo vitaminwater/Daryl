@@ -59,7 +59,7 @@ For macosx users, replace `.bashrc` with `.profile`.
 
 ## Orders
 
-Currently Daryl only responds to 6 possible orders:
+Daryl only responds to a restricted set of possible orders:
 
 ### Create note
 
