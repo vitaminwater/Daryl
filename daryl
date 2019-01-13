@@ -87,7 +87,7 @@ elif [ "$1" == "a" ]; then
     cat $i
     echo "---------------------------------------"
     let j=$j+1
-  done
+  done | less
 
 # open current in $EDITOR
 elif [ "$1" == "e" ]; then
