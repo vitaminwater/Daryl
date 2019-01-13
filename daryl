@@ -32,11 +32,11 @@ set_current () {
   if [ -n "$FORCE_CURRENT" ]; then
     CURRENT="${FORCE_CURRENT/.txt/}.txt"
   else
-    if ! [ -e "$DIR/last" ]; then
+    if ! [ -e "$DIR/current" ]; then
       echo "Call 'daryl r' first. Or set FORCE_CURRENT variable (by doing 'FORCE_CURRENT=214124421421.txt d c' for ex, do a 'd a' to find note names)."
       exit
     fi
-    CURRENT="$(cat $DIR/last)"
+    CURRENT="$(cat $DIR/current)"
   fi
   FILE_PATH="$DIR/$CURRENT"
 }
@@ -50,12 +50,12 @@ fi
 DIR="$HOME/.daryl"
 DONE_DIR="$DIR/.done"
 
-# get random note, store it as the last
+# get random note, store it as the current
 if [ "$1" == "r" ]; then
-  R=$(ls $DIR | grep -v last | sort -R | tail -1)
+  R=$(ls $DIR | grep -v current | sort -R | tail -1)
   echo -e "$(date -d @${R/.txt/}) - ${GREEN}$R${NC}"
   cat $DIR/$R
-  printf "$R" > $DIR/last
+  printf "$R" > $DIR/current
 
 # prints the current note or sets the second parameter as the new current note, second parameter should be the name of the timestamp of the note
 elif [ "$1" == "c" ]; then
@@ -63,7 +63,7 @@ elif [ "$1" == "c" ]; then
   if [ $# == 2 ]; then
     NEW_CURRENT="${2/.txt/}.txt"
     if [ -e "$DIR/$NEW_CURRENT" ]; then
-      printf "$NEW_CURRENT" > $DIR/last
+      printf "$NEW_CURRENT" > $DIR/current
     else
       echo -e "${RED}Can't find the note $NEW_CURRENT.${NC}"
       exit
@@ -106,7 +106,7 @@ elif [ "$1" == "--" ]; then
   echo "" >> $FILE_PATH
   echo -e "Added log to $CURRENT: ${GREEN}ok${NC}"
 
-# end the note stored as last
+# end the note stored as current
 elif [ "$1" == "d" ]; then
   set_current
   printf "The note $CURRENT will be ${RED}marked as done${NC}, sure ? (y/N): "
@@ -118,7 +118,7 @@ elif [ "$1" == "d" ]; then
   mkdir -p $DONE_DIR
   mv $FILE_PATH $DONE_DIR/
   echo -e "Marked note $FILE_PATH as done: ${GREEN}ok${NC}"
-  rm $DIR/last
+  rm $DIR/current
 
 # Github sync
 elif [ "$1" == "s" ]; then
