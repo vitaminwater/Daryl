@@ -68,6 +68,7 @@ Just type `d` followed by your note, no need to add ", all params are concatenat
 ```sh
 
 $ d This is noted I can forget it and go on
+Creating note 1547367966.txt, sure ? (Y/n):          <----- Just type enter here 'Y' is default
 Saving as /home/user/.daryl/1547283650.txt: ok
 
 ```
