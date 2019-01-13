@@ -141,6 +141,14 @@ else
   FILE_PATH="$DIR/$TS.txt"
 
   mkdir -p $DIR
+
+  printf "Creating note ${GREEN}$TS.txt${NC}, sure ? (Y/n): "
+  read confirm
+  if [ "$confirm" == "n" ]; then
+    echo -e "${RED}Abort${NC}"
+    exit
+  fi
+
   echo $NOTE > $FILE_PATH
   echo "" >> $FILE_PATH
   echo -e "Saving as $FILE_PATH: ${GREEN}ok${NC}"
