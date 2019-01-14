@@ -115,6 +115,13 @@ elif [ "$1" == "d" ]; then
     echo -e "${RED}Abort${NC}"
     exit
   fi
+
+  # TODO DRY with the '--' command
+  echo "========= Logged on $(date) =========" >> $FILE_PATH
+  echo "Done" >> $FILE_PATH
+  echo "" >> $FILE_PATH
+  echo -e "Added log 'Done' to $CURRENT: ${GREEN}ok${NC}"
+
   mkdir -p $DONE_DIR
   mv $FILE_PATH $DONE_DIR/
   echo -e "Marked note $FILE_PATH as done: ${GREEN}ok${NC}"

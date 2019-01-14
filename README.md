@@ -123,7 +123,7 @@ The kind of things you'd want to use the logs for:
 - bookmark urls
 - write notes or gotchas you might get into again
 - useful commands
-- something like `TAG: useful_tag`, so you can find them with a `grep -l 'TAG: useful_tag' ~/.daryl/*.txt` (I might add commands for stuff like this once I get more used to it).
+- something like `TAG: useful_tag`, so you can find them with a `d a TAG: useful_tag`.
 - Or even just a "I was here" to know when was the last time you worked on it.
 
 Back to our note, now when we call `d c` to get the current note, we can see our newly created log:
@@ -150,6 +150,8 @@ The note $LAST will be ${RED}marked as done${NC}, sure ? (y/N):
 Marked note /home/user/.daryl/1547283650.txt as done: ok
 
 ```
+
+This also adds a log to the note stating when it got done.
 
 ### (a) Dump all & Search
 
@@ -190,6 +192,7 @@ For macosx users, replace `.bashrc` with `.profile`.
 Ok that's cool but I have multiple computers, so I want synchronization between the machines.
 
 Oh, and I also want history of want I do, who knows what could happen, it's so easy to `rm *` by negligence.
+This also doubles as some sort of `Ctrl-z`.
 
 Good news that's not new need, so let's use `git` as a backend.
 
