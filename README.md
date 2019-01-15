@@ -20,6 +20,8 @@ Table of Contents
          * [(e) Edit current note](#e-edit-current-note)
          * [Work on another note](#work-on-another-note)
          * [(s) Sync to github](#s-sync-to-github)
+      * [Android app](#android-app)
+   * [Table of Contents](#table-of-contents-1)
 
 # Intro
 
@@ -240,3 +242,13 @@ git clone git@your-git-server.com:daryl.git ~/.daryl
 ```
 
 Before typing the first daryl command.
+
+## Android app
+
+Yes you heard right that's actually available on android ! Ok, not really, but still, you can do all the above on your android phone.
+
+First step is to install the app called `Termux` on the Play store.
+
+Once launched you just get a terminal with a `/usr` and `/home` placed inside the app's disk space, `Daryl` being purely POSIX dependant, it's all we need to get it alive.
+
+At that point, all you need is follow the [Installation Guide](#installation), beware that you need to change `/usr` to `$HOME/../usr`.
