@@ -21,7 +21,6 @@ Table of Contents
          * [Work on another note](#work-on-another-note)
          * [(s) Sync to github](#s-sync-to-github)
       * [Android app](#android-app)
-   * [Table of Contents](#table-of-contents-1)
 
 # Intro
 
