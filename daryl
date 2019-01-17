@@ -71,7 +71,7 @@ elif [ "$1" == "c" ]; then
   fi
   set_current
   echo -e "$(date -d @${CURRENT/.txt/}) - ${GREEN}$CURRENT${NC}"
-  cat $FILE_PATH
+  less -FRSXc~ $FILE_PATH
 
 # Dump all notes
 elif [ "$1" == "a" ]; then
