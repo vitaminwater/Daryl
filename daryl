@@ -19,6 +19,7 @@
 RED="\033[0;31m"
 GREEN="\033[0;32m"
 CYAN="\033[0;36m"
+YELLOW="\033[0;33m"
 NC="\033[0m"
 
 pushd () {
@@ -76,16 +77,18 @@ elif [ "$1" == "c" ]; then
 # Dump all notes
 elif [ "$1" == "a" ]; then
   j=1
-  for i in $(ls $DIR/*.txt); do
-    if [ $# == 2 ]; then
-      if ! grep -q -i -E "$2" $i; then
-        continue
-      fi
-    fi
+  if [ $# == 2 ]; then
+    FILES="$(grep -l -i -E "$2" $DIR/*.txt)"
+    echo $FILES
+  else
+    FILES="$(ls $DIR/*.txt)"
+  fi
+
+  for i in $FILES; do
     NOTE=$(basename $i)
     echo -e "#$j - $(date -d @${NOTE/.txt/}) - ${GREEN}$NOTE${NC}"
     cat $i
-    echo "---------------------------------------"
+    echo -e "${YELLOW}---------------------------------------${NC}"
     let j=$j+1
   done | less -FRSXc~
 
