@@ -125,7 +125,10 @@ elif [ "$1" == "d" ]; then
   mkdir -p $DONE_DIR
   mv $FILE_PATH $DONE_DIR/
   echo -e "Marked note $FILE_PATH as done: ${GREEN}ok${NC}"
-  rm $DIR/current
+
+  if [ "$CURRENT" == "$(cat $DIR/current)" ]; then
+    rm $DIR/current
+  fi
 
 # Github sync
 elif [ "$1" == "s" ]; then
